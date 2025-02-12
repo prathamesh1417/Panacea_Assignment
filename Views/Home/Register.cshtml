@@ -1,0 +1,159 @@
+﻿@model Panacea_Assignment.Models.User_List
+@{
+    ViewBag.Title = "User Registration";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Use Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        body {
+            background: #fafafa;
+            transition: background-color 0.5s ease;
+        }
+
+        .form-horizontal {
+            background: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .form-control:focus {
+            border-color: #66afe9;
+            box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+
+        .btn-primary {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #337ab7;
+                transform: scale(1.05);
+            }
+
+        h2 {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="animate__animated animate__fadeIn">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="animate__animated animate__bounceIn">User Registration</h2>
+            </div>
+        </div>
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal">
+                <h4>User Details</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.FirstName, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.MiddleName, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.MiddleName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.LastName, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.Address, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.TextAreaFor(m => m.Address, new { @class = "form-control", rows = 3 })
+                        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.City, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.State, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.PinCode, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.TextBoxFor(m => m.PinCode, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.PinCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.Username, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Status, new { @class = "col-12 col-sm-3 col-md-2 col-form-label" })
+                    <div class="col-12 col-sm-9 col-md-10">
+                        @Html.DropDownListFor(model => model.Status, new SelectList(new[] { "Active", "Inactive" }), "Select Status", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 text-center">
+                        <input type="submit" value="Register" class="btn btn-primary" />
+                       <a href="/Home/Index" class="btn btn-info" >Home Page</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+   
+</body>
+</html>

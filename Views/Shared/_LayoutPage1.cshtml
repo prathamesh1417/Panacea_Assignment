@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav.navbar-dark.bg-dark {
+            transition: background-color 0.3s ease;
+        }
+
+            nav.navbar-dark.bg-dark .navbar-brand {
+                color: #ffffff;
+                transition: color 0.3s ease;
+            }
+
+                nav.navbar-dark.bg-dark .navbar-brand:hover,
+                nav.navbar-dark.bg-dark .navbar-brand:focus {
+                    color: #c2c7cb;
+                }
+
+            nav.navbar-dark.bg-dark .nav-link {
+                color: #c2c7cb;
+                transition: color 0.3s ease, background-color 0.3s ease;
+            }
+
+                nav.navbar-dark.bg-dark .nav-link:hover,
+                nav.navbar-dark.bg-dark .nav-link:focus {
+                    color: #ffffff;
+                    background-color: rgba(255, 255, 255, 0.1);
+                    border-radius: 5px;
+                }
+
+        .body-content {
+            padding-top: 80px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #f0f0f0;
+            border-top: 1px solid #e7e7e7;
+            text-align: center;
+            color: #777;
+            animation: slideUp 0.5s ease-in-out;
+        }
+
+        hr {
+            border-top: 1px solid #ccc;
+        }
+
+        .nav-item.active .nav-link {
+            color: #ffffff !important;
+            background-color: #007bff !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            @Html.ActionLink("User Dashboard", "Dashboard", "Home", null, new { @class = "navbar-brand" })
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+                    aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item @(ViewContext.RouteData.GetRequiredString("action") == "Dashboard" ? "active" : "")">
+                        @Html.ActionLink("Dashboard", "Dashboard", "Home", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item @(ViewContext.RouteData.GetRequiredString("action") == "Display_User" ? "active" : "")">
+                        @Html.ActionLink("User List", "Display_User", "Home", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item @(ViewContext.RouteData.GetRequiredString("action") == "Logout" ? "active" : "")">
+                        @Html.ActionLink("Logout", "Logout", "Home", null, new { @class = "nav-link" })
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr class="my-4" />
+        <footer>
+            <p class="m-0 text-muted">&copy; @DateTime.Now.Year - My ASP.NET MVC App</p>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

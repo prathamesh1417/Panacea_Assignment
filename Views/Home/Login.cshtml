@@ -1,0 +1,106 @@
+﻿@model Panacea_Assignment.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2020&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+            background-size: cover;
+            color: #343a40;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            padding-top: 80px;
+        }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: -1;
+    }
+    .body-content {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .login-card {
+      background: #ffffff;
+      border-radius: 10px;
+      border: 2px solid #dee2e6;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+    .form-control {
+      border: 2px solid #ced4da;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .form-control:focus {
+      border-color: #80bdff;
+      box-shadow: 0 0 8px rgba(128, 189, 255, 0.6);
+      outline: none;
+    }
+    .btn-primary {
+      border: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover {
+      background-color: #0069d9;
+      transform: scale(1.03);
+    }
+    footer {
+      margin-top: 20px;
+      padding: 10px 0;
+      background-color: #f0f0f0;
+      border-top: 1px solid #e7e7e7;
+      text-align: center;
+      color: #777;
+      animation: slideUp 0.5s ease-in-out;
+    }
+    hr {
+      border-top: 1px solid #ccc;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container body-content">
+        <h2 class="text-center mb-4 text-white">@ViewBag.Title</h2>
+        <div class="row justify-content-center">
+            <div class="col-xs-12 col-sm-10 col-md-8 col-lg-5">
+                <div class="login-card">
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Username)
+                            @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <br />
+                        <center>
+                            <a href="/Home/Index" class="btn btn-success">Home</a>
+                        </center>
+                    }
+                </div>
+            </div>
+        </div>
+    
+      
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
