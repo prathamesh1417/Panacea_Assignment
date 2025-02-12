@@ -28,7 +28,7 @@ It utilizes Entity Framework for database interaction and stores data in a SQL S
    git clone "https://github.com/prathamesh1417/Panacea_Assignment.git"
    ```
 2. **Open the Project**
-   - Navigate to the cloned folder and open `Panacea_Assignment.sln - Shortcut.lnk` in Visual Studio.
+   - Navigate to the cloned folder and open `Panacea_Assignment.sln` in Visual Studio.
 
 3. **Configure the Database**
    - Update `web.config` (for ASP.NET MVC) with your SQL Server connection string.
